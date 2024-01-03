@@ -61,6 +61,17 @@ curl \
     localhost:3000
 ```
 
+which will log:
+```
+postgres is running
+server running at 3000
+req: [ff1] crashed but will be nicely handled!
+unhandledRejection received!
+message: SyntaxError: Unterminated string in JSON at position 3
+
+http server closed
+DB connection closed
+```
 Or you can stop the docker compose instance and trigger the payload below:
 
 ```bash
@@ -69,6 +80,15 @@ curl \
     -d '{"name":"John Wick", "power": "superhuman strength"}' \
     localhost:3000
 ```
+which will log:
+```
+postgres is running
+server running at 3000
+req: [387] crashed but will be nicely handled!
+unhandledRejection received!
+message: SequelizeConnectionRefusedError
 
+http server closed
+```
 This will cause the application to throw a JSON parsing error, which will trigger the "Let It Crash" behavior.
 
