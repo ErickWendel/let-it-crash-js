@@ -52,27 +52,7 @@ This will insert a new item with the name "John Wick" and the power "superhuman 
 
 ### Causing the Application to Crash
 
-You can cause the application to crash and stop accepting new connections by sending a malformed JSON payload. Here's an example:
-
-```bash
-curl \
-    -H "Content-Type: application/json" \
-    -d '{"}' \
-    localhost:3000
-```
-
-which will log:
-```
-postgres is running
-server running at 3000
-req: [ff1] crashed but will be nicely handled!
-unhandledRejection received!
-message: SyntaxError: Unterminated string in JSON at position 3
-
-http server closed
-DB connection closed
-```
-Or you can stop the docker compose instance and trigger the payload below:
+You can stop the docker compose instance and trigger the payload below:
 
 ```bash
 curl \

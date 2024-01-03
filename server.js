@@ -47,7 +47,6 @@ const { Hero, sequelize } = await getDB()
 async function handleRequest(request, response) {
 
     // some validation should be done here
-    // I'm doing without it to simulate a critical error
     const data = JSON.parse(await once(request, 'data'))
     const result = await Hero.create(data)
 
@@ -95,10 +94,4 @@ curl \
     -H "Content-Type: application/json" \
     -d '{"name":"John Wick", "power": "superhuman strength"}' \
     localhost:3000
-
-curl \
-    -H "Content-Type: application/json" \
-    -d '{"}' \
-    localhost:3000
-
 */
