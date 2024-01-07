@@ -2,6 +2,11 @@
 
 This application is a demonstration of the "Let It Crash" approach in software development. The "Let It Crash" model is a design philosophy in system development where the system is designed to stop and restart in response to certain types of errors, rather than attempting to account for all possible error conditions.
 
+This is complementary content of my video about [Let It Crash approach in JavaScript (pt-br)](https://youtu.be/OO33Sr4lQDU)
+
+![Deu erro](https://github.com/ErickWendel/let-it-crash-js/assets/8060102/00ab55d7-295f-45bb-88ee-782543417783)
+
+
 ## Overview
 
 In this application, I use Node.js' Async LocalStorage to retrieve the response object from a global handle. This allows us to respond to individual customers even in the event of a critical error.
@@ -70,5 +75,6 @@ message: SequelizeConnectionRefusedError
 
 http server closed
 ```
-This will cause the application to throw a JSON parsing error, which will trigger the "Let It Crash" behavior.
+
+This will cause Node.js to throw an unhandled error as it doesn't have any try/catch block. Using the Node.js' AsyncLocalStorage API it will be able to retrieve the context of the user that caused the exception and reply directly to him before stopping the application.
 
