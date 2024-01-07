@@ -9,7 +9,7 @@ This is complementary content of my video about [Let It Crash approach in JavaSc
 
 ## Overview
 
-In this application, I use Node.js' Async LocalStorage to retrieve the response object from a global handle. This allows us to respond to individual customers even in the event of a critical error.
+In this application, I use Node.js' [Async LocalStorage](https://nodejs.org/api/async_context.html#class-asynclocalstorage) to retrieve the response object from a global handle. This allows us to respond to individual customers even in the event of a critical error.
 
 If a database connection is off, the application will prevent receiving new connections, stop the current database connection, and then terminate. This approach allows the system to recover from errors quickly and continue operating, rather than attempting to handle every possible error condition and potentially causing more problems.
 
